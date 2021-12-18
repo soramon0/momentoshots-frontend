@@ -1,14 +1,19 @@
-import type { NextPage } from "next";
+import type { GetStaticProps } from "next";
 import Head from "next/head";
 import { motion } from "framer-motion";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import Introduction from "@/src/components/home/Introducation";
-import About from "@/src/components/home/About";
-import CTA from "@/src/components/home/CTA";
+import type { HomePageProps as Props } from "@/src/types/pages";
+import { getFeaturedCollectionItems } from "@/src/lib/sanity";
+import {
+  Introduction,
+  About,
+  FeaturedCollectionItems,
+  CTA,
+} from "@/src/components/home";
 
-const Home: NextPage = () => {
+const Home: Props = ({ featuredItems }) => {
   return (
     <motion.main
       className='mb-12 space-y-36 sm:space-y-48'
@@ -20,9 +25,21 @@ const Home: NextPage = () => {
 
       <Introduction />
       <About />
+      <FeaturedCollectionItems items={featuredItems} />
       <CTA />
     </motion.main>
   );
 };
 
 export default Home;
+
+export const getStaticProps: GetStaticProps = async () => {
+  const featuredItems = await getFeaturedCollectionItems();
+
+  return {
+    props: {
+      featuredItems,
+    },
+    revalidate: 60,
+  };
+};

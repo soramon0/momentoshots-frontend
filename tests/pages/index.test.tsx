@@ -4,7 +4,7 @@ import Home from "@/pages/index";
 
 describe("Home", () => {
   it("renders a heading", () => {
-    render(<Home />);
+    render(<Home featuredItems={[]} reviews={[]} />);
 
     const heading = screen.getByText("Coming Soon");
 
