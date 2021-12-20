@@ -1,8 +1,29 @@
-import type { CollectionItem } from "../schemaTypes";
+import type { CollectionItem, Collection } from "../schemaTypes";
 import sanityClient from "../client";
 
 export async function getFeaturedCollectionItems() {
   return sanityClient.fetch<CollectionItem[]>(
     `*[_type == 'collection_item' && featured == true]`
   );
+}
+
+export type CollectionWithItems = Collection & {
+  items?: CollectionItem[];
+};
+
+export async function getCollectionWithItems(slug: string) {
+  const query = `*[_type == 'collection' && slug.current ==  $slug][0]{
+    _id,
+    name,
+    description,
+    main_image,
+    items[] -> {
+      _id,
+      image
+    }
+  }`;
+
+  return sanityClient.fetch<CollectionWithItems>(query, {
+    slug,
+  });
 }
