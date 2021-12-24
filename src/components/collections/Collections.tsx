@@ -12,7 +12,7 @@ interface Props {
 const Collections: VFC<Props> = ({ collections }) => {
   return (
     <motion.div
-      className='grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-2'
+      className="grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-2"
       variants={stagger}
     >
       {collections.map((colection, i) => (

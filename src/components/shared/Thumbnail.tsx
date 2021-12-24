@@ -11,7 +11,7 @@ const Thumbnail: React.VFC<Props> = ({
   ...props
 }) => {
   return (
-    <div className='shadow-lg relative'>
+    <div className="shadow-lg relative">
       <div
         className={`w-full border-2 border-gray-200 absolute -bottom-3 top-3 ${
           boxPosition === "bl" ? "-left-3" : "-right-3"
@@ -22,7 +22,7 @@ const Thumbnail: React.VFC<Props> = ({
 
       {overlay && (
         <div
-          className='absolute inset-0 bg-gradient-to-tl from-transparent to-gray-50 opacity-20'
+          className="absolute inset-0 bg-gradient-to-tl from-transparent to-gray-50 opacity-20"
           aria-hidden
         />
       )}

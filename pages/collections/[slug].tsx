@@ -9,8 +9,8 @@ import { Hero, Gallery, CollectionPaths } from "@/src/components/collections";
 const CollectionPage: Props = ({ collection, collectionPaths }) => {
   return (
     <motion.main
-      initial='initial'
-      animate='animate'
+      initial="initial"
+      animate="animate"
       exit={{ opacity: 0 }}
       key={collection._id}
     >

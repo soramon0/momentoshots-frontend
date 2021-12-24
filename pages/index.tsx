@@ -17,7 +17,7 @@ import {
 const Home: Props = ({ featuredItems, reviews }) => {
   return (
     <motion.main
-      className='mb-12 space-y-36 sm:space-y-48'
+      className="mb-12 space-y-36 sm:space-y-48"
       exit={{ opacity: 0 }}
     >
       <Head>

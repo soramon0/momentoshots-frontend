@@ -15,12 +15,12 @@ interface Props extends TextareaProps {
 
 const Textaria: VFC<Props> = ({ name, label, error, ...props }) => {
   return (
-    <label htmlFor={name} className='w-full h-full inline-block'>
+    <label htmlFor={name} className="w-full h-full inline-block">
       {label}
       <textarea
         id={name}
         name={name}
-        className='w-full h-full p-2 border border-gray-100 rounded-md'
+        className="w-full h-full p-2 border border-gray-100 rounded-md"
         {...props}
       />
       <DisplayError error={error} />

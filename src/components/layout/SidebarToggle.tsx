@@ -7,14 +7,14 @@ interface Props {
 const SidebarToggle: React.VFC<Props> = ({ toggle }) => (
   <button
     onClick={toggle}
-    className='fixed top-4 right-3 w-12 h-12 flex items-center justify-center rounded-full bg-transparent focus:outline-none'
+    className="fixed top-4 right-3 w-12 h-12 flex items-center justify-center rounded-full bg-transparent focus:outline-none"
   >
     <svg
-      width='23'
-      height='23'
-      viewBox='0 0 23 23'
-      className='fill-current text-primary'
-      stroke='currentColor'
+      width="23"
+      height="23"
+      viewBox="0 0 23 23"
+      className="fill-current text-primary"
+      stroke="currentColor"
     >
       <Path
         variants={{
@@ -23,7 +23,7 @@ const SidebarToggle: React.VFC<Props> = ({ toggle }) => (
         }}
       />
       <Path
-        d='M 2 9.423 L 20 9.423'
+        d="M 2 9.423 L 20 9.423"
         variants={{
           closed: { opacity: 1 },
           open: { opacity: 0 },
@@ -42,9 +42,9 @@ const SidebarToggle: React.VFC<Props> = ({ toggle }) => (
 
 const Path = (props: SVGMotionProps<SVGPathElement>) => (
   <motion.path
-    fill='transparent'
-    strokeWidth='3'
-    strokeLinecap='round'
+    fill="transparent"
+    strokeWidth="3"
+    strokeLinecap="round"
     {...props}
   />
 );

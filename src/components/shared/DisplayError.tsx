@@ -11,11 +11,11 @@ const DisplayError: VFC<Props> = ({ error }) => {
   if (!error.length) return null;
 
   return (
-    <div className='flex flex-col space-x-2'>
+    <div className="flex flex-col space-x-2">
       {error.map((err) => (
         <motion.span
           key={err}
-          className='text-red-500'
+          className="text-red-500"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         >

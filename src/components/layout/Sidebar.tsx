@@ -18,14 +18,14 @@ const Sidebar: React.VFC<Props> = ({ isMenuOpen, toggleMenuOpen }) => {
 
   return (
     <motion.div
-      className='absolute top-0 right-0 bottom-0 w-80 md:hidden'
+      className="absolute top-0 right-0 bottom-0 w-80 md:hidden"
       initial={false}
       animate={isMenuOpen ? "open" : "closed"}
       custom={height}
       ref={containerRef}
     >
       <motion.div
-        className='fixed top-0 right-0 bottom-0 w-80 bg-white'
+        className="fixed top-0 right-0 bottom-0 w-80 bg-white"
         variants={sidebar}
       />
       <SidebarItems

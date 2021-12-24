@@ -23,7 +23,7 @@ const SidenarItem: React.VFC<Props> = ({
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
       whileFocus={{ scale: 1.1 }}
-      className='mb-6 flex items-center cursor-pointer'
+      className="mb-6 flex items-center cursor-pointer"
     >
       <Link href={item.route === "/home" ? "/" : item.route}>
         <a

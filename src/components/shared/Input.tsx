@@ -15,14 +15,14 @@ interface Props extends InputProps {
 
 const Input: React.VFC<Props> = ({ name, label, error, ...props }) => {
   return (
-    <label htmlFor={name} className='block'>
+    <label htmlFor={name} className="block">
       {label}
       <input
         id={name}
         name={name}
-        type='text'
-        placeholder='Your Full Name'
-        className='w-full p-2 border border-gray-100 rounded-md'
+        type="text"
+        placeholder="Your Full Name"
+        className="w-full p-2 border border-gray-100 rounded-md"
         {...props}
       />
       <DisplayError error={error} />
