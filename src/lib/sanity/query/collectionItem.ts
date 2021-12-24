@@ -1,8 +1,8 @@
 import type { CollectionItem, Collection } from "../schemaTypes";
-import sanityClient from "../client";
+import { readClient } from "../client";
 
 export async function getFeaturedCollectionItems() {
-  return sanityClient.fetch<CollectionItem[]>(
+  return readClient.fetch<CollectionItem[]>(
     `*[_type == 'collection_item' && featured == true]`
   );
 }
@@ -23,7 +23,7 @@ export async function getCollectionWithItems(slug: string) {
     }
   }`;
 
-  return sanityClient.fetch<CollectionWithItems>(query, {
+  return readClient.fetch<CollectionWithItems>(query, {
     slug,
   });
 }

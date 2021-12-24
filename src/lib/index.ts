@@ -1,3 +1,5 @@
+import type { ParsedUrlQuery } from "querystring";
+
 export * from "./env";
 
 export function pad(num: number, size: number) {
@@ -17,4 +19,12 @@ export function classNames(...classes: string[]) {
 
 export function isEmpty(obj: object) {
   return obj && Object.keys(obj).length === 0;
+}
+
+export function getParam(params: ParsedUrlQuery | undefined, target: string) {
+  if (!params) return "";
+
+  const param = params[target] || "";
+
+  return Array.isArray(param) ? param[0] : param;
 }

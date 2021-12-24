@@ -1,5 +1,3 @@
-import type { ParsedUrlQuery } from "querystring";
-
 function checkEnv(env: string | undefined, name: string) {
   if (!env) {
     throw new Error(
@@ -20,10 +18,11 @@ export function getSanityDataset() {
   return checkEnv(env, "NEXT_PUBLIC_SANITY_DATASET");
 }
 
-export function getParam(params: ParsedUrlQuery | undefined, target: string) {
-  if (!params) return "";
+export function getSanityToken() {
+  if (typeof window === "undefined") {
+    const env = process.env.SANITY_TOKEN;
+    return checkEnv(env, "SANITY_TOKEN");
+  }
 
-  const param = params[target] || "";
-
-  return Array.isArray(param) ? param[0] : param;
+  return undefined;
 }

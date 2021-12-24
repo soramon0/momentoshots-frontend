@@ -1,12 +1,22 @@
 import { createClient } from "next-sanity";
 
-import { getSanityDataset, getSanityProjectId } from "@/src/lib";
+import {
+  getSanityDataset,
+  getSanityProjectId,
+  getSanityToken,
+} from "@/src/lib";
 
-const sanityClient = createClient({
+export const readClient = createClient({
   projectId: getSanityProjectId(),
   dataset: getSanityDataset(),
   useCdn: process.env.NODE_ENV === "production",
   apiVersion: "2021-12-18",
 });
 
-export default sanityClient;
+export const writeClient = createClient({
+  projectId: getSanityProjectId(),
+  dataset: getSanityDataset(),
+  useCdn: false,
+  apiVersion: "2021-12-18",
+  token: getSanityToken(),
+});

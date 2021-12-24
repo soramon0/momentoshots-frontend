@@ -1,6 +1,6 @@
 import type { Collection } from "../schemaTypes";
-import sanityClient from "../client";
+import { readClient } from "../client";
 
 export async function getCollections() {
-  return sanityClient.fetch<Collection[]>(`*[_type == 'collection']`);
+  return readClient.fetch<Collection[]>(`*[_type == 'collection']`);
 }
