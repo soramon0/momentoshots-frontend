@@ -1,8 +1,8 @@
 import type { VFC } from "react";
 import { motion } from "framer-motion";
 
-import type { Collection as CollectionType } from "@/src/lib/sanity/schemaTypes";
-import { stagger } from "@/src/lib/animate";
+import type { Collection as CollectionType } from "@/lib/sanity/schemaTypes";
+import { stagger } from "@/lib/animate";
 import Collection from "./Collection";
 
 interface Props {
@@ -12,7 +12,7 @@ interface Props {
 const Collections: VFC<Props> = ({ collections }) => {
   return (
     <motion.div
-      className="grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-2"
+      className='grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-2'
       variants={stagger}
     >
       {collections.map((colection, i) => (

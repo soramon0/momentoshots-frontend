@@ -2,9 +2,9 @@ import { useRef } from "react";
 import { useRouter } from "next/router";
 import { motion, Variants } from "framer-motion";
 
-import useDimensions from "@/src/hooks/useDimensions";
-import SidebarItems from "@/src/components/layout/SidebarItems";
-import SidebarToggle from "@/src/components/layout/SidebarToggle";
+import useDimensions from "@/hooks/useDimensions";
+import SidebarItems from "@/components/layout/SidebarItems";
+import SidebarToggle from "@/components/layout/SidebarToggle";
 
 interface Props {
   isMenuOpen: boolean;
@@ -18,14 +18,14 @@ const Sidebar: React.VFC<Props> = ({ isMenuOpen, toggleMenuOpen }) => {
 
   return (
     <motion.div
-      className="absolute top-0 right-0 bottom-0 w-80 md:hidden"
+      className='absolute top-0 right-0 bottom-0 w-80 md:hidden'
       initial={false}
       animate={isMenuOpen ? "open" : "closed"}
       custom={height}
       ref={containerRef}
     >
       <motion.div
-        className="fixed top-0 right-0 bottom-0 w-80 bg-white"
+        className='fixed top-0 right-0 bottom-0 w-80 bg-white'
         variants={sidebar}
       />
       <SidebarItems

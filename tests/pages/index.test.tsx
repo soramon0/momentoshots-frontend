@@ -4,10 +4,8 @@ import Home from "@/pages/index";
 
 describe("Home", () => {
   it("renders a heading", () => {
-    render(<Home featuredItems={[]} reviews={[]} />);
+    const { container } = render(<Home featuredItems={[]} reviews={[]} />);
 
-    const heading = screen.getByText("Coming Soon");
-
-    expect(heading).toBeInTheDocument();
+    expect(container).toMatchSnapshot();
   });
 });

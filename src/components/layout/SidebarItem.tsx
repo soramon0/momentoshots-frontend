@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-import { isRoute } from "@/src/lib";
-import { NavItem } from "@/src/components/layout/NavbarItems";
+import { isRoute } from "@/lib";
+import { NavItem } from "@/components/layout/NavbarItems";
 
 interface Props {
   isMenuOpen: boolean;
@@ -23,7 +23,7 @@ const SidenarItem: React.VFC<Props> = ({
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
       whileFocus={{ scale: 1.1 }}
-      className="mb-6 flex items-center cursor-pointer"
+      className='mb-6 flex items-center cursor-pointer'
     >
       <Link href={item.route === "/home" ? "/" : item.route}>
         <a

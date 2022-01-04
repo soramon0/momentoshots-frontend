@@ -1,16 +1,16 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import { motion } from "framer-motion";
 
-import type { CollectionPageProps as Props } from "@/src/types/pages";
-import { getParam } from "@/src/lib";
-import { getCollections, getCollectionWithItems } from "@/src/lib/sanity";
-import { Hero, Gallery, CollectionPaths } from "@/src/components/collections";
+import type { CollectionPageProps as Props } from "@/types/pages";
+import { getParam } from "@/lib";
+import { getCollections, getCollectionWithItems } from "@/lib/sanity";
+import { Hero, Gallery, CollectionPaths } from "@/components/collections";
 
 const CollectionPage: Props = ({ collection, collectionPaths }) => {
   return (
     <motion.main
-      initial="initial"
-      animate="animate"
+      initial='initial'
+      animate='animate'
       exit={{ opacity: 0 }}
       key={collection._id}
     >

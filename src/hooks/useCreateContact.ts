@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import type { ContactPayload } from "@/src/lib/sanity";
+import type { ContactPayload } from "@/lib/sanity";
 
 type Status = "idle" | "pending" | "resolved" | "rejected";
 type ErrorState = Record<string, string[]>;

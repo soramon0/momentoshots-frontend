@@ -2,8 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, Variants } from "framer-motion";
 
-import { navigation } from "@/src/components/layout/NavbarItems";
-import MenuItem, { menuItem } from "@/src/components/layout/SidebarItem";
+import { navigation } from "@/components/layout/NavbarItems";
+import MenuItem, { menuItem } from "@/components/layout/SidebarItem";
 
 interface Props {
   isMenuOpen: boolean;
@@ -19,7 +19,7 @@ const SidebarItems: React.VFC<Props> = ({
   return (
     <motion.ul
       variants={items}
-      className="px-6 pt-16 w-80 fixed top-0 bottom-0"
+      className='px-6 pt-16 w-80 fixed top-0 bottom-0'
     >
       {navigation.map((item, i) => (
         <MenuItem
@@ -31,16 +31,16 @@ const SidebarItems: React.VFC<Props> = ({
         />
       ))}
       <motion.li
-        className="px-8 py-4 absolute left-0 right-0 bottom-0 text-center"
+        className='px-8 py-4 absolute left-0 right-0 bottom-0 text-center'
         variants={menuItem}
       >
-        <Link href="/">
+        <Link href='/'>
           <a
-            className="w-16 h-16 relative inline-block"
+            className='w-16 h-16 relative inline-block'
             onClick={toggleMenuOpen}
             tabIndex={!isMenuOpen ? -1 : 0}
           >
-            <Image src="/images/logo.svg" alt="logo" layout="fill" />
+            <Image src='/images/logo.svg' alt='logo' layout='fill' />
           </a>
         </Link>
       </motion.li>

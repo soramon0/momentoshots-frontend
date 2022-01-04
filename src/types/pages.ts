@@ -1,11 +1,11 @@
 import type { FC } from "react";
 
-import type { CollectionWithItems } from "@/src/lib/sanity";
+import type { CollectionWithItems } from "@/lib/sanity";
 import type {
   Collection,
   CollectionItem,
   Review,
-} from "@/src/lib/sanity/schemaTypes";
+} from "@/lib/sanity/schemaTypes";
 
 export type HomePageProps = FC<{
   reviews: Review[];

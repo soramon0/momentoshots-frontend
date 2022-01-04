@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { motion, AnimateSharedLayout } from "framer-motion";
 
-import { isRoute } from "@/src/lib";
+import { isRoute } from "@/lib";
 
 interface Props {
   isMenuOpen: boolean;
@@ -19,7 +19,7 @@ const NavbarItems: React.VFC<Props> = ({ isMenuOpen }) => {
 
   return (
     <AnimateSharedLayout>
-      <div className="space-x-8">
+      <div className='space-x-8'>
         {navigation.map((item) => (
           <Link
             key={item.route}
@@ -33,8 +33,8 @@ const NavbarItems: React.VFC<Props> = ({ isMenuOpen }) => {
             >
               {isRoute(item.route, route) && (
                 <motion.div
-                  className="w-full h-1 rounded-md left-0 absolute -bottom-2 bg-primary"
-                  layoutId="underline"
+                  className='w-full h-1 rounded-md left-0 absolute -bottom-2 bg-primary'
+                  layoutId='underline'
                   key={item.route}
                 />
               )}

@@ -1,10 +1,6 @@
 import { createClient } from "next-sanity";
 
-import {
-  getSanityDataset,
-  getSanityProjectId,
-  getSanityToken,
-} from "@/src/lib";
+import { getSanityDataset, getSanityProjectId, getSanityToken } from "@/lib";
 
 export const readClient = createClient({
   projectId: getSanityProjectId(),

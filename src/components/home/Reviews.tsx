@@ -1,8 +1,8 @@
 import Slider, { Settings } from "react-slick";
 
 import type { VFC } from "react";
-import type { Review as ReviewType } from "@/src/lib/sanity/schemaTypes";
-import Review from "@/src/components/home/Review";
+import type { Review as ReviewType } from "@/lib/sanity/schemaTypes";
+import Review from "@/components/home/Review";
 
 interface Props {
   reviews: ReviewType[];
@@ -10,8 +10,8 @@ interface Props {
 
 const Testimonials: VFC<Props> = ({ reviews }) => {
   return (
-    <section className="px-4 sm:pl-8 md:pl-12">
-      <h2 className="py-4 text-3xl font-display sm:text-4xl lg:text-5xl">
+    <section className='px-4 sm:pl-8 md:pl-12'>
+      <h2 className='py-4 text-3xl font-display sm:text-4xl lg:text-5xl'>
         What people say about us
       </h2>
 
@@ -53,14 +53,14 @@ const settings: Settings = {
   ],
   appendDots: function Dots(dots) {
     return (
-      <div className="text-left -mt-2 ml-2">
-        <ul className="-mt-16 flex space-x-4">{dots}</ul>
+      <div className='text-left -mt-2 ml-2'>
+        <ul className='-mt-16 flex space-x-4'>{dots}</ul>
       </div>
     );
   },
   customPaging: function Paging(index) {
     return (
-      <div className="w-5 h-5 rounded-full flex items-center justify-center bg-gray-100">
+      <div className='w-5 h-5 rounded-full flex items-center justify-center bg-gray-100'>
         <button>{index + 1}</button>
       </div>
     );

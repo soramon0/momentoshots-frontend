@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
-import { createContact } from "@/src/lib/sanity";
-import { validateContact } from "@/src/lib/validation";
+import { createContact } from "@/lib/sanity";
+import { validateContact } from "@/lib/validation";
 
 export default async function handler(
   req: NextApiRequest,

@@ -1,6 +1,6 @@
 import * as yup from "yup";
 
-import type { ContactPayload } from "@/src/lib/sanity";
+import type { ContactPayload } from "@/lib/sanity";
 import { validate } from "./validate";
 
 const contactSchema = yup.object().shape({
