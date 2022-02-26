@@ -63,7 +63,7 @@ function Footer() {
             </li>
             {navigation.map((item) => (
               <li key={item.route}>
-                <Link href={item.route === "/home" ? "/" : ``}>
+                <Link href={item.route === "/home" ? "/" : item.route}>
                   <a
                     className={classNames(
                       "hover:text-primary focus:text-primary",
