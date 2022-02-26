@@ -89,7 +89,12 @@ function Footer() {
               collections.map((item) => (
                 <li key={item._id}>
                   <Link href={`/collections/${item.slug.current}`}>
-                    <a className='hover:text-primary focus:text-primary'>
+                    <a
+                      className={classNames(
+                        "hover:text-primary focus:text-primary",
+                        color(`/collections/${item.slug.current}`)
+                      )}
+                    >
                       {item.name}
                     </a>
                   </Link>
