@@ -1,23 +1,16 @@
-import { useEffect } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
 
 import { classNames, isRoute } from "@/lib";
-import IconIG from "@/components/icons/Instagram";
 import { navigation } from "@/components/layout/NavbarItems";
-import { useCollectionSlugs } from "@/hooks/useCollectionSlugs";
+import IconIG from "@/components/icons/Instagram";
+import LatestCollectionSlugs from "@/components/collections/LatestCollectionSlugs";
 
 function Footer() {
   const { route } = useRouter();
   const color = (path: string) =>
     isRoute(path, route) ? "font-semibold text-primary" : "text-gray-700";
-
-  const { collections, getCollectionSlugs, isLoading } = useCollectionSlugs();
-
-  useEffect(() => {
-    getCollectionSlugs();
-  }, [getCollectionSlugs]);
 
   return (
     <footer className='px-8 py-8 border-t border-gray-100 md:px-16'>
@@ -83,24 +76,7 @@ function Footer() {
                 Latest Work
               </span>
             </li>
-            {isLoading ? (
-              <li>Fetching work...</li>
-            ) : (
-              collections.map((item) => (
-                <li key={item._id}>
-                  <Link href={`/collections/${item.slug.current}`}>
-                    <a
-                      className={classNames(
-                        "hover:text-primary focus:text-primary",
-                        color(`/collections/${item.slug.current}`)
-                      )}
-                    >
-                      {item.name}
-                    </a>
-                  </Link>
-                </li>
-              ))
-            )}
+            <LatestCollectionSlugs />
           </ul>
         </div>
       </div>
