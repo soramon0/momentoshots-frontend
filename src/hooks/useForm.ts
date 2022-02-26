@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useCallback, useState } from "react";
 
 function useForm<T>(initial = {} as T) {
   const [inputs, setInputs] = useState(initial);
@@ -19,18 +19,20 @@ function useForm<T>(initial = {} as T) {
     setInputs((state) => ({ ...state, [name]: value }));
   }
 
-  function resetFrom() {
+  const resetFrom = useCallback(() => {
     setInputs(initial);
-  }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  function clearForm() {
+  const clearForm = useCallback(() => {
     const blankState = Object.entries(inputs).map(([key, value]) => [
       key,
       typeof value === "number" ? 0 : "",
     ]);
 
     setInputs(Object.fromEntries(blankState));
-  }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return { inputs, onChange, resetFrom, clearForm };
 }

@@ -1,4 +1,4 @@
-import { FormEventHandler, useState } from "react";
+import { FormEventHandler, useEffect, useState } from "react";
 import Head from "next/head";
 import { motion } from "framer-motion";
 
@@ -25,12 +25,14 @@ function ContactPage() {
     e.preventDefault();
 
     await createContact(inputs);
+  };
 
+  useEffect(() => {
     if (isSuccess) {
       resetFrom();
       setShowNotifier(true);
     }
-  };
+  }, [isSuccess, resetFrom]);
 
   return (
     <motion.main className='mb-12' exit={{ opacity: 0 }}>

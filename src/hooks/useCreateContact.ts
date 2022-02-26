@@ -7,12 +7,7 @@ type ErrorState = Record<string, string[]>;
 
 export function useCreateContact() {
   const [status, setStatus] = useState<Status>("idle");
-  const [errors, setErrors] = useState<ErrorState>();
-
-  const isIdle = status === "idle";
-  const isLoading = status === "pending";
-  const isSuccess = status === "resolved";
-  const isError = status === "rejected";
+  const [errors, setErrors] = useState<ErrorState | null>(null);
 
   const createContact = async (payload: ContactPayload) => {
     try {
@@ -30,9 +25,11 @@ export function useCreateContact() {
       if (!res.ok) {
         setErrors(data);
         setStatus("rejected");
+      } else {
+        setErrors(null);
+        setStatus("resolved");
       }
 
-      setStatus("resolved");
       return data;
     } catch {
       setErrors({ message: ["Something unexpected happened"] });
@@ -43,9 +40,9 @@ export function useCreateContact() {
   return {
     createContact,
     errors,
-    isIdle,
-    isLoading,
-    isSuccess,
-    isError,
+    isIdle: status === "idle",
+    isLoading: status === "pending",
+    isSuccess: status === "resolved",
+    isError: status === "rejected",
   };
 }
